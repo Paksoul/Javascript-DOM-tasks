@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="c://wamp64new/www/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+     .container{
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+            clip-path: circle(50% at 0 0);
+            transition: all 2s ease;
+            /* clip-path polygon shape can be googled */
+        }
+        .container:hover{
+            clip-path: circle(100% at 0);
+        }
+    .h3{
+        font-size: 2rem;
+        color: #fff;
+        font-weight: bold;
+        text-align: right;
+    }
+    .p{
+        color: #fff;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+    
+<br><br><br>
+<center>
+    <div class="col-4 alert alert-success">Javascript Calculator
+
+        <div class="col-md-12 alert bg-success" id="screen">
+            <div class="p" id="history"></div>
+            <div class="h3" id="result">0.</div>
+        </div>
+        
+<table border="0" >
+    <tr>
+        <td colspan="4">
+            <button class='btn btn-sm btn-danger'  onclick="reset()">Reset</button>
+                <button class='btn btn-sm btn-warning'  onclick="undo()">Undo &#8635;</button>
+        
+        <button class='btn btn-sm btn-warning'  onclick="squareRoot()">&#8730</button>
+        <button class='btn btn-sm btn-warning'  onclick="square()">x<sup>2</sup></sup></button><br><br></td>
+    </tr>
+
+    <tr>
+        <td><button class='alert alert-warning' onclick="addHistory(7)">7</button></td>
+        <td> <button class='alert alert-warning'  onclick="addHistory(8)">8</button></td>
+        <td><button class='alert alert-warning'  onclick="addHistory(9)">9</button></td>
+        <td><button class='alert bg-warning'  onclick="addHistory('/')">/</button></td>
+    </tr>
+
+    <tr>
+        <td><button class='alert alert-warning'  onclick="addHistory(4)">4</button></td>
+        <td><button class='alert alert-warning'  onclick="addHistory(5)">5</button></td>
+        <td><button class='alert alert-warning'  onclick="addHistory(6)">6</button></td>
+        <td><button class='alert bg-warning'  onclick="addHistory('*')">X</button></td>
+    </tr>
+
+    <tr>
+        <td><button class='alert alert-warning'  onclick="addHistory(1)">1</button></td>
+        <td><button class='alert alert-warning'  onclick="addHistory(2)">2</button></td>
+        <td><button class='alert alert-warning'  onclick="addHistory(3)">3</button></td>
+        <td><button class='alert bg-warning'  onclick="addHistory('-')">-</button></td>
+    </tr>
+
+    <tr>
+        <td><button class='alert alert-warning'  onclick="addHistory('.')">.</button></td>
+        <td><button class='alert alert-warning'  onclick="addHistory(0)">0</button></td>
+        <td><button class='alert bg-warning'  onclick="addHistory('+')">+</button></td>
+        <td><button class='alert bg-success text-white'  onclick="calculate()">=</button></td>
+    </tr>
+
+    <tr>
+        <td colspan="4"  align="center"><small>Find Area</small></td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            
+            <button class='btn btn-sm btn-warning'  onclick="rectagleA()">Rectangle</button>
+        <button class='btn btn-sm btn-warning'  onclick="triangleA()">Triangle</button>
+        <button class='btn btn-sm btn-warning'  onclick="circleA()">Circle</button>
+        </td>
+            
+            
+    </tr>
+
+</table>
+
+        
+    </div>
+
+</center>
+</body>
+
+
+<script>
+    const history = document.getElementById("history");
+    const screen = document.getElementById("result");
+    let inputHistory = [];
+
+    function square(){
+        screen.innerText=eval(history.innerText * history.innerText);
+        Math.sqrt
+    }
+    function squareRoot(){
+        screen.innerText=Math.sqrt(history.innerText);
+    }
+
+    function calculate(action){
+        screen.innerText=eval(history.innerText);
+    }
+
+
+    function addHistory(item){
+        history.innerText = history.innerText + item;
+        inputHistory.push(history.innerText);
+    }
+
+    function undo(){
+        if(inputHistory.length > 0){
+            history.innerText = inputHistory.pop();
+        }else{
+            alert("No more undo");
+        }
+    }
+function reset(){
+    inputHistory = [];
+    history.innerText='';
+    screen.innerText='0.';
+}
+
+function triangleA(){
+    var base = prompt("Entry the value of Base");
+    var height = prompt("Entry the value of Height");
+    history.innerText="Area of Triangle = 1/2(b x h)";
+    screen.innerText = "Area of Triangle is "+1/2*( Number(base) * Number(height));
+}
+
+function rectagleA(){
+    var width = prompt("Entry the value of Width");
+    var length = prompt("Entry the value of length");
+    history.innerHTML="Area of Rectangle = length x width,   <small>length="+length+" width="+width+"</small>";
+    screen.innerText = "Area of Rectangle is "+( Number(width) * Number(length));
+}
+
+function circleA(){
+    var radius = prompt("Entry Radius Value");
+    history.innerHTML="Area of Circle = &#960;r<sup>2</sup> where r="+radius;
+    screen.innerText = "Area of Circle is "+3.14 * ( Number(radius)*Number(radius));
+}
+
+
+</script>
+
+
+</html>

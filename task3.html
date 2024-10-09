@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Tasks 3 - Luqman Aziz</title>
+    <link href="https://enggentrancetest.pk/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <style>
+        .dark{
+            color: #fff;
+            background-color: #000;
+        }
+        .container{
+            width: 100rex;
+            background-color: chocolate;
+            color: #fff;
+            
+        }
+        .container h1{
+            margin-left: 50px;
+        }
+    </style>
+
+</head>
+
+<body id="myBody">
+
+    <div class="container" id="sdf">
+        <h1>Toggle Mode</h1>
+    </div>
+    
+    <p>This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. </p>
+    <p>This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. </p>
+    <p>This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. This is a demo paragraph. </p>
+    
+    
+<div class="alert alert-danger">Error you have an error</div>
+
+    <button onclick="toggleIt();" id="btn" class="btn btn-danger">Switch Mode</button>
+</body>
+
+
+<script>
+    function toggleIt(){
+        var bg = document.getElementById("myBody");
+        var btn = document.getElementById("btn");
+    
+        if(bg.className==="dark")
+            btn.innerText="Swith to Dark Mode";
+        else
+            btn.innerText="Swith to Light Mode";
+    
+        bg.classList.toggle("dark");    
+    }
+</script>
+
+</html>

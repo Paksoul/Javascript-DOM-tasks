@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Tasks - Luqman Aziz</title>
+
+    <style>
+        .container{
+            width: 100rex;
+            background-color: chocolate;
+            color: #fff;
+            
+        }
+        .container h1{
+            margin-left: 50px;
+        }
+        .h3{
+            font-size: 2rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+    </div>
+    
+    <ol id="todoList" class="h3">        
+        
+    </ol>    
+    <button onclick="addTask();">Add Task</button>
+</body>
+
+
+<script>
+    var todoList = document.getElementById("todoList");
+    let i=0;
+
+    function addTask(){
+        i++;
+        var date = new Date();
+        date = date.toLocaleDateString();
+
+
+        var task = prompt("Enter your Task");
+
+        var item = document.createElement("li");  
+            item.setAttribute("id","id"+i);
+            item.innerHTML = task+ " <small>("+date+")</small> <button onclick=\"reset('id"+i+"')\">   X  </button>";
+        todoList.appendChild(item);
+    }
+
+    function reset(id){
+        var itemID = document.getElementById(id);
+        itemID.remove();
+    }
+
+</script>
+
+</html>
