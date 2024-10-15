@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-3</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container p-5">
+        <div class="row justify-content-center m-5 p-3 ">
+          <div class="col-6 ">
+            <div id="div1" class="alert alert-info shadow">
+                <p class="text-center h3">Task-4</p>
+                <form id="form1" method="post" onsubmit="return checkForm(event)">
+                Name:
+                <input type="text" class="form-control" id="name" placeholder="Name" required>
+                
+                Age:
+                <input type="number" class="form-control" id="age" placeholder="Age" required>
+                <br \>
+                <input type="submit" class="btn btn-primary">
+
+                <div id="msgBox"></div>
+            </form>
+                
+
+            </div>
+               </div>
+        </div>
+      </div>
+    
+</body>
+
+<script>
+    let name = document.getElementById("name");
+    let age = document.getElementById("age");
+    let msgBox = document.getElementById("msgBox");
+
+    function  checkForm(event){
+        event.preventDefault();
+
+        if(name.value =="")
+        {
+            error(name, "Please fill the name box");
+        }
+        else if(!isNaN(name.value))
+        {
+            error(name, "Please type correct name.");
+        }
+        else if(age.value == "")
+        {
+            error(age, "Please fill the age box");
+        }
+        else if(isNaN(age.value))
+        {
+            error(age, "Provide correct age");
+        }
+        else{
+        msgBox.setAttribute("class","alert alert-success");
+        msgBox.innerHTML="Submitted succussfully."
+        return true;
+        }
+    }
+
+
+
+
+
+function error(field,text){
+            alert(text);
+            field.style.borderColor='#f00';
+            field.focus();
+            return false;
+}
+</script>
+</html>
